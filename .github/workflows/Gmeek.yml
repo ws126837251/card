@@ -218,10 +218,14 @@ jobs:
                   })
 
               if not articles:
-                  raise RuntimeError(
-                      f"没有在 {html_file} 中找到文章日期，"
-                      "为防止发布错误页面，本次构建已停止。"
-                  )
+                  print(f"{html_file} 暂无文章，跳过日期清理和排序")
+                  if changed:
+                      html_file.write_text(
+                          str(soup),
+                          encoding="utf-8"
+                      )
+                  print(f"已处理：{html_file}")
+                  return
 
               # 去除重复的文章行
               unique_articles = []
