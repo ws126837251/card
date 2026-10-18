@@ -97,7 +97,9 @@ jobs:
               if(window.__wufengVercountCanonical)return;
               window.__wufengVercountCanonical=true;
               var api="https://events.vercount.one/api/v2/log";
-              var legacyHost="tutorials.wufeng.de";
+              // The site-level Vercount aggregate is keyed by hostname.
+              // Keep this blog's counter separate from other wufeng sites.
+              var counterHost="card.wufeng.de";
               var originalFetch=window.fetch;
               if(typeof originalFetch!=="function")return;
               window.fetch=function(input,init){
@@ -108,7 +110,7 @@ jobs:
                           if(payload&&typeof payload.url==='string'){
                               var target=new URL(payload.url);
                               if(target.hostname==='blog.wufeng.de'){
-                                  target.hostname=legacyHost;
+                                  target.hostname=counterHost;
                                   payload.url=target.href;
                                   init=Object.assign({},init,{body:JSON.stringify(payload)});
                               }
