@@ -55,7 +55,17 @@
 <meta content="https://blog.wufeng.de/card" property="og:url"/>
 <meta content="https://cdn.nodeimage.com/i/j3CEACe0uyNKI9YjgDBInZsllW5VDviU.webp" property="og:image"/>
 <title>卡圈情报站</title>
-</head>
+<style data-card-categories="true">
+.homeCategories{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.homeCategory{display:inline-flex;align-items:center;justify-content:center;
+min-height:32px;box-sizing:border-box;padding:4px 12px;border:1px solid #3f5668;
+border-radius:999px;background:transparent;color:#3f5668;text-decoration:none;
+font-size:14px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
+.homeCategory:hover{background:rgba(63,86,104,.12);color:#3f5668;text-decoration:none}
+.homeCategory:focus-visible{outline:2px solid #3f5668;outline-offset:3px}
+@media(max-width:600px){.homeCategories{gap:6px;margin-bottom:14px}
+.homeCategory{max-width:100%;min-height:36px}}
+</style></head>
 <style>
 body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
 #header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
@@ -110,7 +120,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 <div id="content">
 <div style="margin-bottom: 16px;">教程补充·薅羊毛</div>
-<nav class="SideNav border">
+<nav aria-label="文章分类" class="homeCategories"><a class="homeCategory" href="tag.html#%E7%94%B5%E5%AD%90%E9%93%B6%E8%A1%8C">电子银行</a></nav><nav class="SideNav border">
 <a class="SideNav-item d-flex flex-items-center flex-justify-between" href="post/ying-guo-iFAST-yin-xing-%EF%BC%9A-chu-ru-jin-he-xin-zhong-zhuan-zhan.html">
 <div class="d-flex flex-items-center">
 <svg class="SideNav-icon octicon" style="width:16px;height:16px"><path class="svgTop0" d=""></path>
@@ -187,5 +197,5 @@ for(var i=0;i<iconPost.length;i++){
 
 
 </script>
-<script>(function(){function addHomeLink(){if(document.querySelector('.tutorialHomeLink'))return;const target=document.querySelector('#header .title-right');if(!target)return;const link=document.createElement('a');link.className='btn btn-invisible circle tutorialHomeLink';link.href='https://blog.wufeng.de/';link.title='首页';link.setAttribute('aria-label','首页');link.innerHTML='<svg class="octicon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="m8 1.2 6.3 5.4v7.2H9.8V9.5H6.2v4.3H1.7V6.6L8 1.2Zm0 2-4.8 4.1v5h1.5V8h4.6v4.3h1.5v-5L8 3.2Z"></path></svg>';target.prepend(link)}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',addHomeLink,{once:true})}else{addHomeLink()}})();</script><script>(function(){function addCategoryNav(){if(document.querySelector('.homeCategories'))return;const content=document.getElementById('content'),articleList=content&&content.querySelector('.SideNav-item');if(!articleList)return;const style=document.createElement('style');style.textContent='.homeCategories{display:flex;flex-wrap:wrap;gap:8px;margin:-6px 0 16px}.homeCategory{display:inline-flex;align-items:center;min-height:30px;padding:4px 12px;border:1px solid #3f5668;border-radius:999px;background:transparent;color:#3f5668;text-decoration:none;font-size:14px;font-weight:600;line-height:1;box-shadow:none}.homeCategory:hover{background:rgba(63,86,104,.12);color:#3f5668;text-decoration:none}@media(max-width:600px){.homeCategories{gap:6px;margin:-4px 0 14px}.homeCategory{flex:1 1 calc(50% - 3px);justify-content:center;min-height:34px}}';document.head.append(style);const nav=document.createElement('nav');nav.className='homeCategories';nav.setAttribute('aria-label','文章分类');[['教程'],['注意事项'],['杂谈'],['百科全书']].forEach(([name])=>{const link=document.createElement('a');link.className='homeCategory';link.href='tag.html#'+name;link.textContent=name;nav.append(link)});articleList.insertAdjacentElement('afterend',nav)}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',addCategoryNav,{once:true})}else{addCategoryNav()}})();</script>
+<script>(function(){function addHomeLink(){if(document.querySelector('.tutorialHomeLink'))return;const target=document.querySelector('#header .title-right');if(!target)return;const link=document.createElement('a');link.className='btn btn-invisible circle tutorialHomeLink';link.href='https://blog.wufeng.de/';link.title='首页';link.setAttribute('aria-label','首页');link.innerHTML='<svg class="octicon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="m8 1.2 6.3 5.4v7.2H9.8V9.5H6.2v4.3H1.7V6.6L8 1.2Zm0 2-4.8 4.1v5h1.5V8h4.6v4.3h1.5v-5L8 3.2Z"></path></svg>';target.prepend(link)}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',addHomeLink,{once:true})}else{addHomeLink()}})();</script>
 </html>
