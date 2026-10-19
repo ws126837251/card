@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<link href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css" rel="stylesheet"/>
+<script src="https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js"></script><script data-wufeng-vcount-canonical="">
+(function(){
+    if(window.__wufengVercountCanonical)return;
+    window.__wufengVercountCanonical=true;
+    var api="https://events.vercount.one/api/v2/log";
+    var counterUrl="https://blog.wufeng.de/card/";
+    var originalFetch=window.fetch;
+    if(typeof originalFetch!=="function")return;
+    window.fetch=function(input,init){
+        var isCounterRequest=false;
+        try{
+            var requestUrl=typeof input==='string'?input:(input&&input.url);
+            if(requestUrl===api&&init&&typeof init.body==='string'){
+                var payload=JSON.parse(init.body);
+                if(payload&&typeof payload.url==='string'){
+                    var target=new URL(payload.url);
+                    if(target.hostname==='blog.wufeng.de'){
+                        payload.url=counterUrl;
+                        init=Object.assign({},init,{body:JSON.stringify(payload)});
+                        isCounterRequest=true;
+                    }
+                }
+            }
+        }catch(error){}
+        var responsePromise=originalFetch.call(this,input,init);
+        if(!isCounterRequest||!responsePromise||typeof responsePromise.then!=="function")return responsePromise;
+        return responsePromise.then(function(response){
+            try{
+                return response.clone().json().then(function(body){
+                    if(body&&body.data&&typeof body.data.page_pv==="number")body.data.site_pv=body.data.page_pv;
+                    else if(body&&typeof body.page_pv==="number")body.site_pv=body.page_pv;
+                    return new Response(JSON.stringify(body),{status:response.status,statusText:response.statusText,headers:response.headers});
+                }).catch(function(){return response;});
+            }catch(error){return response;}
+        });
+    };
+})();
+</script><style>@media (prefers-color-scheme:light){html[data-color-mode='auto'],html[data-color-mode='auto'] body{background-color:#EEF3F7!important}}html[data-color-mode='light'],html[data-color-mode='light'] body{background-color:#EEF3F7!important}.Header{display:flex!important;align-items:center!important}.Header h1{transform:translateY(-8px)!important}.Header img{margin-top:0!important}#weatherEffect{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9999}</style><canvas id="weatherEffect"></canvas><script>(function(){const c=document.getElementById('weatherEffect');if(!c)return;if(window.matchMedia('(max-width:600px), (prefers-reduced-motion:reduce)').matches){c.remove();return}const ctx=c.getContext('2d');let w,h;let p=[];const m=new Date().getMonth()+1;const winter=m===12||m<=2;const summer=m>=6&&m<=8;function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}resize();window.addEventListener('resize',resize);let mobile=window.innerWidth<600;let count=mobile?50:120;for(let i=0;i<count;i++){p.push({x:Math.random()*w,y:Math.random()*h,l:Math.random()*18+10,s:Math.random()*1.2+.5,r:Math.random()*2.5+1})}function draw(){ctx.clearRect(0,0,w,h);if(winter){ctx.fillStyle='rgba(255,255,255,.85)';ctx.beginPath();p.forEach(a=>{ctx.moveTo(a.x,a.y);ctx.arc(a.x,a.y,a.r,0,Math.PI*2);a.y+=a.s;a.x+=Math.sin(a.y/70)*.35;if(a.y>h){a.y=-10;a.x=Math.random()*w}});ctx.fill()}else{ctx.strokeStyle=summer?'rgba(120,170,210,.50)':'rgba(120,150,180,.50)';ctx.lineWidth=1.4;p.forEach(a=>{ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(a.x+2,a.y+a.l);ctx.stroke();a.y+=a.s*(mobile?(summer?7:5):(summer?4:2.5));a.x+=.25;if(a.y>h){a.y=-20;a.x=Math.random()*w}})}requestAnimationFrame(draw)}draw()})();</script><style>html,body{max-width:100%}#header,#content,.title-left,.d-flex{min-width:0}.title-right{flex-shrink:0}.SideNav{min-width:0!important;width:100%!important}.SideNav-item{min-width:0}.SideNav-item>.d-flex{flex:1 1 auto;min-width:0}.listLabels{flex:0 0 auto}.LabelName{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:72px;min-width:72px;max-width:72px;text-align:center;white-space:nowrap}.listLabels object{display:flex!important;align-items:center;justify-content:center;width:100%;max-width:none!important}.LabelName a{display:block;width:100%;text-align:center}#postBody{line-height:1.75!important;overflow-wrap:anywhere}#postBody p{margin:0 0 1em}#postBody img{max-width:100%;height:auto}#postBody table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}#postBody pre{max-width:100%;overflow-x:auto}#postBody a{overflow-wrap:anywhere}@media (max-width:600px){body{width:100%!important;max-width:100%!important;margin:0 auto!important;padding:12px!important;line-height:1.6!important}#header{align-items:center!important;gap:8px;margin-bottom:14px!important}.title-left{display:flex;align-items:center;flex:1 1 auto;overflow:hidden}.avatar{width:38px!important;height:38px!important;flex:0 0 38px}.blogTitle{display:block!important;min-width:0;max-width:none!important;margin-left:8px!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px!important;line-height:1.2!important}.title-right{gap:2px}.title-right .circle,.title-right button{box-sizing:border-box!important;display:flex!important;align-items:center;justify-content:center;width:42px!important;height:42px!important;min-width:42px!important;margin-right:0!important;padding:0!important}#buttonRSS{display:none!important}.postTitle{flex:1 1 auto;min-width:0;margin:0!important;overflow-wrap:anywhere;font-size:26px!important;line-height:1.25!important}.SideNav-item{gap:8px;padding:12px 10px!important}.SideNav-icon{flex:0 0 16px;margin-right:8px!important}.listTitle{font-size:15px;line-height:1.4}.listLabels{margin-left:6px}.LabelName{width:72px;min-width:72px;max-width:72px;overflow:hidden}#postBody{font-size:16px!important;line-height:1.75!important}#postBody h2{margin-top:1.6em;font-size:22px}#postBody h3{margin-top:1.4em;font-size:18px}#postBody table{font-size:14px}#cmButton{min-height:48px}#footer{margin-top:40px!important;padding-bottom:12px}#weatherEffect{display:none!important}}@media (prefers-reduced-motion:reduce){#weatherEffect{display:none!important}.avatar{transition:none!important}.avatar:hover{transform:none!important}}</style>
+<link href="https://cdn.nodeimage.com/i/j3CEACe0uyNKI9YjgDBInZsllW5VDviU.webp" rel="icon"/><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta content="如果你想线上开通一个英国银行账户，拿到个人收款信息，大陆身份证就能交材料，可以直接看 iFAST Global Bank。" name="description"/>
+<meta content="英国iFAST银行：出入金核心中转站" property="og:title"/>
+<meta content="如果你想线上开通一个英国银行账户，拿到个人收款信息，大陆身份证就能交材料，可以直接看 iFAST Global Bank。" property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://blog.wufeng.de/card/post/ying-guo-iFAST-yin-xing-%EF%BC%9A-chu-ru-jin-he-xin-zhong-zhuan-zhan.html" property="og:url"/>
+<meta content="https://cdn.nodeimage.com/i/j3CEACe0uyNKI9YjgDBInZsllW5VDviU.webp" property="og:image"/>
+<title>英国iFAST银行：出入金核心中转站</title>
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+<body>
+<div id="header">
+<h1 class="postTitle">英国iFAST银行：出入金核心中转站</h1>
+<div class="title-right">
+<a class="btn btn-invisible circle" href="https://blog.wufeng.de/card" id="buttonHome" title="首页">
+<svg class="octicon" height="16" width="16">
+<path fill-rule="evenodd" id="pathHome"></path>
+</svg>
+</a>
+<a class="btn btn-invisible circle" href="https://github.com/ws126837251/card/issues/1" target="_blank" title="Issue">
+<svg class="octicon" height="16" width="16">
+<path fill-rule="evenodd" id="pathIssue"></path>
+</svg>
+</a>
+<a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+<svg class="octicon" height="16" width="16">
+<path fill-rule="evenodd" id="themeSwitch"></path>
+</svg>
+</a>
+</div>
+</div>
+<div id="content">
+<div class="markdown-body" id="postBody"><p>如果你想线上开通一个英国银行账户，拿到个人收款信息，大陆身份证就能交材料，可以直接看 iFAST Global Bank。有人写成 iFAST、奕丰、英区数字银行。</p>
+<p>0 开户费、0 年费、0 管理费。开出来是英国持牌数字银行账户，不是电子钱包。英镑走英国本地账户，欧元、美元、港币、人民币走国际账户。后面给 Wise 入金、接券商、试绑英区 PayPal，都会用到这组账号。钱要回到国内，App 里可以把外币汇到支付宝。</p>
+<p>一句话概括： 英国持牌 + £12 万保障 + 身份证远程开户 + 0 费用,一部手机 30 分钟搞定,趁能开的时候先开好,资料真实、同名转账、合规用汇，跨境基建薅羊毛必不可少。</p>
+<h1>iFAST简单介绍</h1>
+<p>简单地说，iFAST Global Bank 是英国数字银行，母公司是新加坡上市的 iFAST 集团。银行业务拿过英国 PRA 授权，并受 PRA 和 FCA 监管。符合条件的存款参加 FSCS，页面上看到的上限是每人 120,000 英镑，以官网为准。</p>
+<p>国内银行 App：人民币转账扫码很顺，英镑、欧元、对接海外券商经常卡住。</p>
+<p>Wise：换汇、多币种收款强，对加密相关来源很敏感，也不是英国持牌银行账户。</p>
+<p>iFAST 卡在银行这一层：身份证加大陆地址可以远程开，账户里能放多种货币，英镑有 Sort Code，国际侧有 IBAN / SWIFT,支持 SEPA 可以接收海妖交易所的欧元/英镑</p>
+<p><a href="https://github.com/user-attachments/assets/d8ababd9-7de1-4d63-976f-394a21e667cc" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1081" src="https://github.com/user-attachments/assets/d8ababd9-7de1-4d63-976f-394a21e667cc" style="max-width: 100%; height: auto; max-height: 1081px;; aspect-ratio: 2000 / 1081; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p><strong>英国本地账户：收英镑。对方在英国境内转，走 FPS 一类本地通道，常见秒到、这一段不另收费。</strong></p>
+<p><strong>国际账户：收欧元、美元、港币、人民币等。走 IBAN / SWIFT，支持 SEPA</strong></p>
+<p><a href="https://github.com/user-attachments/assets/5db0bd79-e827-412a-87b8-3bfd6723c9ff" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/5db0bd79-e827-412a-87b8-3bfd6723c9ff" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p><strong>它不是 N26 的完整平替，也不是 Wise 的替代品。<br/>
+更稳的用法是两个都开：<br/>
+iFAST 负责银行账户和收付，<br/>
+Wise 负责换汇和周转。<br/>
+没有港卡的人，会把它当成海外资金的中转节点。</strong></p>
+<h1>一、准备工作</h1>
+<p>1.<strong>邮箱：</strong> Gmail、Outlook 这类能稳定收验证码的国际邮箱。验证码常见 6 位、10 分钟有效，进垃圾箱找一遍。</p>
+<ol start="2">
+<li>
+<p><strong>手机号：</strong> 大陆 +86 可以用（手机号宗旨是哪国地址用哪国号码）。</p>
+</li>
+<li>
+<p>**证件：**主中国身份证原件。有护照、后面要和 Wise 英文名严格同名的，也可以走护照，以验证页可选类型为准。拍原件，四角完整，不要拍屏幕。</p>
+</li>
+<li>
+<p><strong>地址证明：</strong> 近 3 个月内，能看清姓名、当前居住地址、机构名称和日期。常见能用的：招行银行月结单、信用卡账单，可以直接申请也可以修改地址。</p>
+</li>
+<li>
+<p><strong>姓名和地址准备两版：</strong> 英文栏用证件上的大写拼音；中文栏写完整中文姓名和中文住址。</p>
+</li>
+</ol>
+<p>6.<strong>税务识别号：</strong> 中国税务居民，TIN 就是身份证号。</p>
+<ol start="7">
+<li><strong>网络：</strong> 国内网络可以开。</li>
+</ol>
+<p>先打开邀请链接，再注册。<br/>
+邀请链接➡️：<a href="https://www.ifastgb.com/tellafriend/jianshuaiw2028" rel="nofollow">iFAST Global Bank</a><br/>
+邀请码➡️：<code class="notranslate">OHPE3UEB0X</code></p>
+<h1>二、开户流程</h1>
+<p>打开邀请链接➡️：<a href="https://www.ifastgb.com/tellafriend/jianshuaiw2028" rel="nofollow">iFAST Global Bank</a>阅读注册须知,填写自己的邮箱，右上角可以切换中文，输入自己邮箱点击接收邀请然后可以直接下载 APP，全程手机操作完成。<br/>
+<a href="https://github.com/user-attachments/assets/3a61af4c-ec4d-4cc6-a15c-a926190c535f" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1077" src="https://github.com/user-attachments/assets/3a61af4c-ec4d-4cc6-a15c-a926190c535f" style="max-width: 100%; height: auto; max-height: 1077px;; aspect-ratio: 2000 / 1077; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>下载 APP 之后，选择<strong>个人申请人</strong>➡️<strong>点击开始</strong>➡️ <strong>是否已有 iFAST 相关账户：选择否</strong> ➡️<strong>是否受雇于集团 选择否</strong></p>
+<p>➡️同意条款➡️输入本人常用邮箱,点「继续」。➡️系统会发送 6 位验证码到邮箱,有效期 10 分钟,收不到看垃圾箱，然后输入自己的手机号。</p>
+<p><a href="https://github.com/user-attachments/assets/dcfd4f35-a827-43ac-818d-49bc3fa596fe" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/dcfd4f35-a827-43ac-818d-49bc3fa596fe" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>跟随软件点击（好的）-美国税务状态选择否-英文全称用 大写拼音 全名用中文 真实填写不要乱填</p>
+<p>举例：全名 张三 英文 ZHANG SAN</p>
+<p><a href="https://github.com/user-attachments/assets/5515bc41-1173-4eb9-ada7-678c5871b8e9" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/5515bc41-1173-4eb9-ada7-678c5871b8e9" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>输入自己出生日期-居住选中国-地址先用英文写，省、邮编写上；</p>
+<p>「居住地址（请以中文填写）」再写完整中文地址。</p>
+<ul>
+<li>易错点<g-emoji alias="bangbang" class="g-emoji">‼️</g-emoji>：地址这里会写两遍第一遍英文写第二遍是中文写，住宅信息非常重要，不要随便填，要和你之后要提供的地址证明上的地址要一样的。 这个地址可以用ai帮你翻译然后进行填写</li>
+</ul>
+<p>国内的地址证明怎么搞？ 用招商银行的信用卡账单就可以了。在招行“掌上生活”APP里搜索“电子账单补寄”，就有带公章的招行的带公章的信用卡账单了。这个地址可以修改，账单最好和身份证上的地址一致。</p>
+<p>入住日期 选超过三年的时间。填的地址必须和稍后上传的账单逐字能对上。身份证地址和实际居住地不在同一个区，可以，前提是你交得出来对应账单。</p>
+<p><a href="https://github.com/user-attachments/assets/e5e6de5e-0e17-4595-87d6-65b610ddd9d5" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/e5e6de5e-0e17-4595-87d6-65b610ddd9d5" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>税务识别号TIN 填身份证号。填写职业、收入来源、财富来源、账户用途。职业可以选受雇，后面按真实情况填写。</p>
+<p>就业、行业、公司、收入来源、财富来源、账户用途、首笔存款范围、资金来源国家（英国）、预计每月交易次数，按真实计划填。</p>
+<p>普通用户存款范围选最低一档即可 页面问是否为 iFAST 集团或其业务合作伙伴，一般人选不是。</p>
+<p><a href="https://github.com/user-attachments/assets/8d5174d4-e899-4262-9609-063baf75585f" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/8d5174d4-e899-4262-9609-063baf75585f" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>接下来就是身份验证+地址证明上传</p>
+<p>确认全部信息。合同、声明、FSCS 相关文件要逐个点开看完，再同意。证件签发国家选中国，证件类型选身份证或护照。</p>
+<p>近 3 个月内，能看清姓名、当前居住地址、机构名称和日期。常见能用的：银行月结单、信用卡账单、房贷还款单、水电燃气网络账单、政府机构信函。明确不接受的：Wise 报表、屏幕截图、编辑过的副本、医疗账单、银行促销信。</p>
+<p><a href="https://github.com/user-attachments/assets/b5f1a3ec-4dc7-4977-a930-f97fc78c2f71" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/b5f1a3ec-4dc7-4977-a930-f97fc78c2f71" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>网页如果提示没有电脑摄像头，选用手机。打开已经装好的 iFAST GB App，同一邮箱登录，输入 6 位验证码。按页拍摄证件原件，上传地址证明 PDF，完成问卷和自拍。问卷内容就是前面填过的资料，答案保持一致。提交后可以退出，等邮件。</p>
+<p>审核没有统一天数。有人半天下户，有人 1–2 个工作日，页面上也写过最多 7 个工作日；个别会拖到补件。被要补材料，先核对姓名、地址、证件有效期、文件是不是完整 PDF，不要反复交截图。</p>
+<h1>三、开户之后怎么入金</h1>
+<p>收到开户成功邮件，用注册邮箱登录。首次要设密码，再注册保安编码器，也就是人脸或指纹一类二次验证。邮箱再收一次码，扫一次脸，才能进首页。</p>
+<p>账户信息在 左上角三条杠 → 银行明细。</p>
+<ul>
+<li>
+<p>在英国境内：Sort Code、账号、户名。只收英镑。</p>
+</li>
+<li>
+<p>国际的：IBAN、SWIFT、户名。支持 SEPA 用来收其他币种或跨境汇款。</p>
+</li>
+</ul>
+<p><a href="https://github.com/user-attachments/assets/6d2e772a-210a-4470-856c-6ee75964fe2f" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/6d2e772a-210a-4470-856c-6ee75964fe2f" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<h2>入金操作</h2>
+<p>第一笔钱只从本人名下、能解释来源的账户转入。不要让朋友代付，不要从第三方换汇商直接打，不要用自己也说不清的钱包测试。</p>
+<ol>
+<li>兴业银行</li>
+</ol>
+<p>在兴业银行用人民币购买 GBP 现汇，购汇用途选择因私旅游</p>
+<p>如果之后取消汇款，GBP 可以再结汇成人民币，但银行买卖价之间存在价差，来回兑换通常会有损失</p>
+<p><a href="https://github.com/user-attachments/assets/a3377b63-0f59-4bc2-b1d4-ca39487de76b" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/a3377b63-0f59-4bc2-b1d4-ca39487de76b" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>外汇汇款时，账户中除了要有足够的 GBP，还要预留人民币支付银行费用，提交汇款后，兴业银行先冻结了 200 元费用。</p>
+<p>注意这里的费用承担方式应选择 OUR汇款人承担，iFast 付款信息中有明确指出。不同银行和收款路径的选项可能不同，操作时应以 iFast 页面和汇出行提示为准。</p>
+<p><a href="https://github.com/user-attachments/assets/ea726e92-63d9-4c00-95a2-17ab1a5c1f63" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/ea726e92-63d9-4c00-95a2-17ab1a5c1f63" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>购汇和汇款用途可根据真实情况填写，如果遇到审核，直接向银行确认所需资料，并确保汇款用途和证明材料真实一致。</p>
+<p><a href="https://github.com/user-attachments/assets/5e13ff0f-eea8-479c-9c1d-e53a287911a6" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/5e13ff0f-eea8-479c-9c1d-e53a287911a6" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>特别注意不要混淆两个地址：</p>
+<ul>
+<li>
+<p>Beneficiary Address：本人作为收款人的地址，可选择英国酒店地址</p>
+</li>
+<li>
+<p>Bank Address：Wise 页面提供的收款机构或银行地址</p>
+</li>
+</ul>
+<p>提交前建议对照 iFast 页面逐字复核姓名、IBAN、SWIFT/BIC 和 Reference。首次入金应从本人同名账户汇出，否则可能被拒收或要求额外验证。</p>
+<p>银行审核通过并汇出后，等待 iFast 收到 GBP。到账时间会受到汇出行、中转行、周末及合规审核等因素影响。</p>
+<p><a href="https://github.com/user-attachments/assets/4decb03f-54da-47dc-b4ea-b0c74d7b0445" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/4decb03f-54da-47dc-b4ea-b0c74d7b0445" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<ol start="2">
+<li>wise入金</li>
+</ol>
+<p>激活最省事的一条：Wise 英镑账户 → 汇款 → 添加英镑收款人 → 填 iFAST 的 Sort Code、户名、账号 → 先转 1 英镑。走英国本地，常见很快到账。到账后，这个户才算真正能用。最低激活金额我这边是 1 英镑等值，以你账户提示为准。</p>
+<p><a href="https://github.com/user-attachments/assets/a70a420a-0665-4666-b10b-aad0b5d89648" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/a70a420a-0665-4666-b10b-aad0b5d89648" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<p>添加iFAST英国本地银行信息</p>
+<p><a href="https://github.com/user-attachments/assets/4154e679-44fb-40b1-b841-6fc8c70324da" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/4154e679-44fb-40b1-b841-6fc8c70324da" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<h1>四、注意事项</h1>
+<ol>
+<li>
+<p>iFAST 可以接收部分加密相关银行的汇款，不能出金到 U 卡、交易所。用 iFAST 给 Kraken 打钱，被提示收款方可能与加密货币相关，直接拒了。这条当中转，不要当双向通道。</p>
+</li>
+<li>
+<p>SEPA 欧元是后加的能力。英镑 FPS 还在；用国际侧转账用个人 IBAN 走 SEPA 收欧元。</p>
+</li>
+<li>
+<p>资金回国 1.5%返现 损耗低 每月扫码支付消费最高享受2000英镑 返现额度</p>
+</li>
+</ol>
+<p><a href="https://github.com/user-attachments/assets/ffba435f-1808-46c5-8efd-51a3c0cc9599" rel="noopener noreferrer" target="_blank"><img alt="Image" class="js-gh-image-fallback" height="1251" src="https://github.com/user-attachments/assets/ffba435f-1808-46c5-8efd-51a3c0cc9599" style="max-width: 100%; height: auto; max-height: 1251px;; aspect-ratio: 2000 / 1251; background-color: var(--bgColor-muted); border-radius: 6px" width="2000"/></a></p>
+<ol start="4">
+<li>
+<p>给 Wise 入金、试绑英区 PayPal、对接 IBKR / 嘉信一类券商，是这个户更常见的用法。</p>
+</li>
+<li>
+<p>港卡往美股、港股券商直接打钱如果被卡住，英国账户才会显得更必要。</p>
+</li>
+<li>
+<p>长期零余额、零交易，有关户风险。留一点余额，偶尔登录。</p>
+</li>
+</ol></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 教程持续整理中~❤️</div>
+<button class="btn btn-block" id="cmButton" onclick="openComments()" type="button">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+<div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://blog.wufeng.de/card">卡圈情报站</a></div>
+<div id="footer2">
+<span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("10/18/2026"!=""){
+    var startSite=new Date("10/18/2026");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek main https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","ws126837251/card");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+<script src="https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js"></script><script>(function(){function addHubLink(){if(document.querySelector('.tutorialHubLink'))return;const header=document.querySelector('#header');if(!header)return;const target=header.querySelector('.title-right')||header;const link=document.createElement('a');link.className='tutorialHubLink';link.href='https://blog.wufeng.de/';link.textContent='教程中心';link.setAttribute('aria-label','返回无风教程中心');link.style.cssText='display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:0 12px;margin-right:8px;border:1px solid var(--borderColor-default,#d0d7de);border-radius:999px;color:inherit;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap';target.prepend(link)}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',addHubLink)}else{addHubLink()}})();</script>
+</html>
