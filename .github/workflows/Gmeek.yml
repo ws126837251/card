@@ -6,8 +6,11 @@ on:
     paths:
       - "config.json"
       - ".github/workflows/Gmeek.yml"
+      - "scripts/render-categories.py"
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled, unlabeled]
+  label:
+    types: [edited, deleted]
   schedule:
     - cron: "0 16 * * *"
 
@@ -390,6 +393,9 @@ jobs:
 
           print("CUSTOMIZE_SUCCESS")
           PY
+
+      - name: Render categories from published article labels
+        run: python scripts/render-categories.py /opt/Gmeek/docs
 
       - name: Verify customized homepage
         run: |
