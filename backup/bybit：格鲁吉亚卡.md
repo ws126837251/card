@@ -31,9 +31,7 @@
 
 <img width="395" height="183" alt="Image" src="https://github.com/user-attachments/assets/0cd61cfd-fec5-4263-aa99-da3f18187d6e" />
 
-5. 填写手机号码和邀请码
-
-填写邀请码：J3WQR0B
+5. 填写手机号码和邀请码：J3WQR0B
 
 6. 等待审核，审核成功
 
