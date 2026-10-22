@@ -21,7 +21,7 @@
 
 2. 实名认证
 
-<img width="828" height="1792" alt="Image" src="https://github.com/user-attachments/assets/e272255f-3a9a-4030-b965-ba157e10862b" />
+<img width="382" height="425" alt="Image" src="https://github.com/user-attachments/assets/3dd88085-e6d6-4f0b-bb26-6d3d1eb2589e" />
 
 3. 填写相关信息
 
