@@ -21,7 +21,7 @@ wise 对大陆用户最有价值的场景，不是刷卡消费，而是资金中
 
 ---
 
-1.  打开 [wise官网](https://wise.com/invite/ilpn/xjz7c7k) 或 Wise App，选择「个人账户」，居住地按国内身份信息如实填写。
+1.  打开 [wise官网](https://wise.com/invite/ilpn/xjz7c7k) ，选择「个人账户」，居住地按国内身份信息如实填写。
 整个注册过程用国内网络直接操作即可，不需要科学上网，反而频繁切换 IP 会触发风控。
 
 2.填写个人资料。姓名必须用拼音全大写，First Name 填名（如 SAN），Last Name 填姓（如 ZHANG）——这一步极容易填错。
