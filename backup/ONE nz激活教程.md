@@ -3,7 +3,7 @@
 # 一、收到货查看手机号和是否过期
 
 - 手机号通常是以 021 开头的一串数字。
-- 如果包装已经丢失，可尝试发送短信 mynum 到 521 查询号码，或在手机的 SIM 卡设置中查看。
+- 如果包装已经丢失，可尝试发送短信 NUMBER 到 521 查询号码，或在手机的 SIM 卡设置中查看。
 
 <img width="472" height="622" alt="Image" src="https://github.com/user-attachments/assets/27ced239-d293-4266-a848-7145d89aa601" />
 
