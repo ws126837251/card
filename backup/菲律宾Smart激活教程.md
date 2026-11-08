@@ -39,7 +39,7 @@
 
 <img width="2262" height="1048" alt="Image" src="https://github.com/user-attachments/assets/8ac2c6b6-9809-40d1-a941-3532230b8267" />
 
-三、登录APP
+# 三、登录APP
 1. 下载Smart 
 
 <img width="2028" height="906" alt="Image" src="https://github.com/user-attachments/assets/daf0ce5a-a618-46fe-b8b1-c530e1d95492" />
