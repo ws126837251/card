@@ -1,5 +1,7 @@
 # 一共两个教程吗，分别是£12+£17这个是教程一
 
+- 教程二链接：[点击进入](url)
+
 # 一、Topcashback注册：
 
 1. 注册英国区[点击进入网站](https://www.topcashback.co.uk/ref/wufeng)
