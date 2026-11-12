@@ -1,4 +1,4 @@
-# 一共两个教程，分别是£12+£10这个是教程一
+# 一共两个教程，分别是£12+£10这个是教程一£12
 
 - 教程二链接：[点击进入](https://blog.wufeng.de/card/post/Topcashback-bai-piao-%C2%A310%2BLebara%20Esim%EF%BC%88-er-%EF%BC%89.html)
 
