@@ -2,10 +2,9 @@
 
 # 一、收到货查看手机号和是否过期
 
-- 手机号通常是以 021 开头的一串数字。
-- 如果包装已经丢失，可尝试发送短信 NUMBER 到 521 查询号码，或在手机的 SIM 卡设置中查看。
+- 发送短信 NUMBER 到 521 查询号码，或在手机的 SIM 卡设置中查看。
 
-<img width="472" height="622" alt="Image" src="https://github.com/user-attachments/assets/27ced239-d293-4266-a848-7145d89aa601" />
+<img width="750" height="1334" alt="e3142a54eb2c41cf36fa1d4703cf7a9c" src="https://github.com/user-attachments/assets/ec88aef1-0e6d-4adb-873e-2f118256824d" />
 
 # 二、插卡并等待联网
 
@@ -33,21 +32,15 @@
 
 - 注册账户后可以查看余额、用量和号码有效期。
 
-1. 进入 One NZ 官网或官方 App，创建账户并验证邮箱，然后添加移动服务。
+1. 进入 One NZ 官网或官方 App，验证邮箱登录，并添加手机号获取验证码。
 
-<img width="347" height="533" alt="Image" src="https://github.com/user-attachments/assets/c429b997-6b8e-41a7-b948-9280ee1bc987" />
+<img width="2298" height="1334" alt="image" src="https://github.com/user-attachments/assets/6a01438c-1e58-44ef-a250-c34f4df498ef" />
 
-2. 添加移动服务Add a Service，选择预付费卡。
+2. 收取验证码绑定，进入APP页面。
 
-<img width="376" height="471" alt="Image" src="https://github.com/user-attachments/assets/dc4f2ada-35fa-49bc-ad47-8e3ae18c466a" />
+<img width="2298" height="1334" alt="image" src="https://github.com/user-attachments/assets/40242787-b7d2-4ebb-926f-d74c73468bd4" />
 
-<img width="356" height="600" alt="Image" src="https://github.com/user-attachments/assets/4d1c8b7e-33d6-4acb-aea0-32385b2387a3" />
-
-3. 输入包装上的手机号码，收取验证码绑定。
-
-<img width="352" height="297" alt="Image" src="https://github.com/user-attachments/assets/10ea4bb7-9f64-421a-9291-588e15fe7818" />
-
-4.  激活后检查
+3.  激活后检查
 
 - 余额
 
