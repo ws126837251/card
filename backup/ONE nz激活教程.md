@@ -4,7 +4,7 @@
 
 - 发送短信 NUMBER 到 521 查询号码，或在手机的 SIM 卡设置中查看。
 
-<img width="750" height="1334" alt="e3142a54eb2c41cf36fa1d4703cf7a9c" src="https://github.com/user-attachments/assets/ec88aef1-0e6d-4adb-873e-2f118256824d" />
+<img width="750" height="383" alt="f2db1ed0677cb2f5e2dd570005053838" src="https://github.com/user-attachments/assets/263bd757-6e3f-4de9-bd11-5aaa105bedd2" />
 
 # 二、插卡并等待联网
 
@@ -28,11 +28,11 @@
 
 # 四、注册并绑定 One NZ 账户
 
-<img width="347" height="102" alt="Image" src="https://github.com/user-attachments/assets/366757ee-b03b-424a-bd09-5d93de3d0b33" />
+<img width="750" height="262" alt="03a27ad3d1802886a389a4600d59c790" src="https://github.com/user-attachments/assets/c6ac5ee4-7164-456f-bf17-97ca061ad6b7" />
 
 - 注册账户后可以查看余额、用量和号码有效期。
 
-1. 进入 One NZ 官网或官方 App，验证邮箱登录，并添加手机号获取验证码。
+1. 进入 One NZ App，验证邮箱登录，并添加手机号获取验证码。
 
 <img width="2298" height="1334" alt="image" src="https://github.com/user-attachments/assets/6a01438c-1e58-44ef-a250-c34f4df498ef" />
 
@@ -42,16 +42,35 @@
 
 3.  激活后检查
 
+- 号码
+
 - 余额
 
 - 号码有效期
 
-- 本卡是充值保号，充值之后有效期+12个月
+- 卡本身单有效期，建议首充一次，防止运营商改规则
 
-<img width="342" height="646" alt="Image" src="https://github.com/user-attachments/assets/be39d6d9-ec84-496c-ae75-78328430ffab" />
+<img width="750" height="1334" alt="da9994197e2824d042041fa5cd472117" src="https://github.com/user-attachments/assets/ef8015c7-72ea-4296-8237-5a80251f2e02" />
 
+# 五、 如何充话费
 
-# 五、 资费
+### 测试不限制任何卡，即国内外VISA和万事达，U卡，都可以
+
+<img width="3072" height="1334" alt="image" src="https://github.com/user-attachments/assets/313fddec-ecc0-45c3-8ab6-05e3bc232e0f" />
+
+# 六、 实体卡转esim
+
+### 只适用于原生esim手机
+
+1. 打开蜂窝网络滑道最底部有显示，直接点击切换
+
+<img width="2298" height="1334" alt="image" src="https://github.com/user-attachments/assets/475ce3f1-7ada-4561-b998-d9b3230a36e8" />
+
+2. 切换成功之后原实体卡已失效，拔出来切到esim即可
+
+<img width="1524" height="1334" alt="image" src="https://github.com/user-attachments/assets/5b2e685f-9655-4223-89a3-9f25f72fc7f2" />
+
+# 七、 资费
 
 ### 新西兰 One NZ 漫游资费
 
@@ -64,4 +83,3 @@
 | 发送短信 | 0.92 NZD/条 |
 | 接收短信 | 免费 |
 | 漫游流量 | 11.5 NZD/MB |
-
